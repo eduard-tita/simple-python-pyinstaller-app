@@ -39,6 +39,9 @@ pipeline {
 
 // This function extracts the project name from the GIT_URL environment variable.
 def extractProjectName() {
+    echo "Extracting project name from GIT_URL: ${env.GIT_URL}"
     def match = env.GIT_URL =~ /.+\/([^\/]+)\.git/
+    echo "Match: ${match[0]}"
+    echo "Matched project name: ${match[0][1]}"
     return match[0][1]
 }
